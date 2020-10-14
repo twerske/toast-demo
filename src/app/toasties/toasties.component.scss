@@ -21,7 +21,7 @@ $dark-background-palette: map-get($dark-theme, background);
 }
 
 .toast-container {
-    height: 40%;
+    height: 48%;
 }
 
 mat-progress-bar {
@@ -35,7 +35,7 @@ mat-progress-spinner {
 
 .controls-container {
     position: relative;
-    height: 40%;
+    height: 47%;
     background-color : mat-color($toast-primary, default);
     border-radius: 25px;
     margin: 10px;
