@@ -1,0 +1,48 @@
+@import "src/styles.scss";
+
+// Palette foreground/background:
+$light-foreground-palette: map-get($toast-theme, foreground);
+$light-background-palette: map-get($toast-theme, background);
+
+// Dark palette foreground/background:
+$dark-foreground-palette: map-get($dark-theme, foreground);
+$dark-background-palette: map-get($dark-theme, background);
+
+.toast-container, .controls-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.controls-container {
+    overflow-y: auto;
+}
+
+.toast-container {
+    height: 40%;
+}
+
+mat-progress-bar {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+mat-progress-spinner {
+    margin-bottom: 10%;
+}
+
+.controls-container {
+    position: relative;
+    height: 40%;
+    background-color : mat-color($toast-primary, default);
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+
+    &.dark {
+        background-color : mat-color($dark-primary, default);
+    }
+}
+

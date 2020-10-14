@@ -1,0 +1,247 @@
+<mat-card>
+  <section class="section">
+    <button mat-button (click)='generateToast()'>Toast</button>
+    <button mat-button color="primary" (click)='generateToast()'>Toast</button>
+    <button mat-button color="accent" (click)='generateToast()'>Toast</button>
+    <button mat-button color="warn" (click)='generateToast()'>Toast</button>
+    <button mat-button disabled (click)='generateToast()'>Toast</button>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="section">
+    <button mat-stroked-button (click)='generateToast()'>Toast</button>
+    <button mat-stroked-button color="primary" (click)='generateToast()'>Toast</button>
+    <button mat-stroked-button color="accent" (click)='generateToast()'>Toast</button>
+    <button mat-stroked-button color="warn" (click)='generateToast()'>Toast</button>
+    <button mat-stroked-button disabled (click)='generateToast()'>Toast</button>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="section">
+    <button mat-raised-button (click)='generateToast()'>Toast</button>
+    <button mat-raised-button color="primary" matBadge=":)" matBadgeColor="accent" (click)='generateToast()'>Toast</button>
+    <button mat-raised-button color="accent" (click)='generateToast()'>Toast</button>
+    <button mat-raised-button color="warn" (click)='generateToast()'>Toast</button>
+    <button mat-raised-button disabled (click)='generateToast()'>Toast</button>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="section">
+    <button mat-flat-button (click)='generateToast()'>Toast</button>
+    <button mat-flat-button color="primary" (click)='generateToast()'>Toast</button>
+    <button mat-flat-button color="accent" (click)='generateToast()'>Toast</button>
+    <button mat-flat-button color="warn" (click)='generateToast()'>Toast</button>
+    <button mat-flat-button disabled (click)='generateToast()'>Toast</button>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="section">
+    <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </section>
+  <mat-divider></mat-divider>
+  <section class="section">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>bookmark</mat-icon>
+    </button>
+    <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-fab disabled aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" aria-label="Delete toast button" (click)='this.resetToast.emit()'>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab color="accent" aria-label="Delete toast button" (click)='this.resetToast.emit()'>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" aria-label="Delete toast button" (click)='this.resetToast.emit()'>
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-mini-fab disabled aria-label="Delete toast button" (click)='this.resetToast.emit()'>
+      <mat-icon>delete</mat-icon>
+    </button>
+  </section>
+
+  <!-- <section class="section">
+    <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle value="left" aria-label="Text align left">
+        <mat-icon>format_align_left</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="center" aria-label="Text align center">
+        <mat-icon>format_align_center</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="right" aria-label="Text align right">
+        <mat-icon>format_align_right</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="justify" disabled aria-label="Text align justify">
+        <mat-icon>format_align_justify</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    <div>Selected value: {{group.value}}</div>
+  </section> -->
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <section class="section">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Bread
+            </mat-panel-title>
+            <mat-panel-description>
+              {{bread}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ng-template matExpansionPanelContent>
+            <mat-radio-group [(ngModel)]="bread">
+              <mat-radio-button value="Sourdough">Sourdough</mat-radio-button>
+              <mat-radio-button value="Whole Wheat">Whole Wheat</mat-radio-button>
+              <mat-radio-button value="Rye">Rye</mat-radio-button>
+            </mat-radio-group>
+          </ng-template>
+          <mat-action-row>
+            <button mat-button color="accent" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Bread Options
+            </mat-panel-title>
+            <mat-panel-description>
+              {{sliced ? 'Sliced' : 'Not sliced' }} 
+              {{diagonal ? 'diagonally' : '' }} 
+              {{buttered ? 'and buttered' : '' }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ng-template matExpansionPanelContent>
+            <section class="section">
+              <mat-slide-toggle color="primary" [(ngModel)]="sliced">Sliced</mat-slide-toggle>
+              <mat-slide-toggle 
+                color="accent" 
+                [disabled]="!sliced"
+                [(ngModel)]="diagonal">
+                Diagonal
+              </mat-slide-toggle>
+            </section>
+            <section class="section">
+              <mat-checkbox [(ngModel)]="buttered">Buttered</mat-checkbox>
+            </section>
+          </ng-template>
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button color="accent" (click)="nextStep()">Next</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Toasting
+            </mat-panel-title>
+            <mat-panel-description>
+              {{toasted < 1 ? 'None' : '' }}
+              {{toasted > 0 && toasted < 3 ? 'Lightly Toasted' : '' }}
+              {{toasted > 2 && toasted < 6 ? 'Toasted' : '' }}
+              {{toasted > 5 ? 'Burnt' : '' }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <ng-template matExpansionPanelContent>
+            <section class="section">
+              <mat-slider
+                max=6
+                min=0
+                step=1
+                thumbLabel=true
+                tickInterval=1
+                [(ngModel)]="toasted">
+              </mat-slider>
+            </section>
+            <!-- <mat-chip-list aria-label="Fish selection">
+              <mat-chip color="primary" selected>Primary fish</mat-chip>
+              <mat-chip color="accent" selected>Accent fish</mat-chip>
+            </mat-chip-list> -->
+          </ng-template>
+          <mat-action-row>
+            <button mat-button color="warn" (click)="prevStep()">Previous</button>
+            <button mat-button (click)="nextStep()">End</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </section>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-vertical-stepper [linear]="true" #stepper>
+    <!-- <mat-step>
+      <ng-template matStepLabel>Jam and Spreads</ng-template>
+      <app-jam-autocomplete (setFlavor)="setJamFlavor($event)"></app-jam-autocomplete>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step> -->
+    <mat-step [stepControl]="jam">
+      <form [formGroup]="jam">
+        <ng-template matStepLabel>Jam and Spreads</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Jam Flavor</mat-label>
+          <mat-select [formControl]="jam" multiple>
+            <mat-select-trigger>
+              {{jam.value ? jam.value[0] : ''}}
+              <span *ngIf="jam.value?.length > 1" class="example-additional-selection">
+                (+{{jam.value.length - 1}} {{jam.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let j of jamList" [value]="j">{{j}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="toppings">
+      <form [formGroup]="toppings">
+        <ng-template matStepLabel>Additional Toppings</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Toppings</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-vertical-stepper>
+
+  <section class="section">
+    <div class="toaster-container">
+      <app-toaster></app-toaster>
+    </div>
+  </section>
+</mat-card>

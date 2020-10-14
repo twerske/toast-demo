@@ -1,0 +1,75 @@
+<div class='breadBody'>
+    <div 
+        [ngClass]='{
+            sourdough: toast.bread == "Sourdough",
+            wheat: toast.bread == "Whole Wheat",
+            rye: toast.bread == "Rye",
+            toasted: toast.toasted > 1 && toast.toasted < 6,
+            burnt: toast.toasted > 5
+        }'
+        class='top'>
+    </div>
+    <div 
+        [ngClass]='{
+            sourdough: toast.bread == "Sourdough",
+            wheat: toast.bread == "Whole Wheat",
+            rye: toast.bread == "Rye",
+            toasted: toast.toasted > 1 && toast.toasted < 6,
+            burnt: toast.toasted > 5
+        }'
+        class='bottom'>
+    </div>
+    <div 
+        [ngClass]='{
+            sourdough: toast.bread == "Sourdough",
+            wheat: toast.bread == "Whole Wheat",
+            rye: toast.bread == "Rye",
+            toasted: toast.toasted > 1 && toast.toasted < 6,
+            burnt: toast.toasted > 5
+        }'
+        class='topping'
+    >
+        <svg *ngIf='toast.jam?.includes("Lemon Curd")' viewBox='-50 -50 170 170' xmlns='http://www.w3.org/2000/svg'>
+            <path fill="#fabf00" d="M41.4,-59.1C50.2,-50.5,51.5,-33.8,57.7,-18C64,-2.1,75.1,12.9,73.1,25.3C71.2,37.6,56.2,47.1,41.8,57.7C27.4,68.2,13.7,79.8,-2,82.6C-17.8,85.4,-35.6,79.4,-49.1,68.6C-62.6,57.8,-71.8,42,-78,24.9C-84.1,7.8,-87.2,-10.8,-82.4,-27.2C-77.7,-43.6,-65,-57.8,-49.9,-64.3C-34.9,-70.8,-17.4,-69.7,-0.6,-68.9C16.3,-68.1,32.5,-67.6,41.4,-59.1Z" transform="translate(35 30)" />
+        </svg>
+        <svg *ngIf='toast.jam?.includes("Strawberry")' viewBox='-30 -50 200 200' xmlns='http://www.w3.org/2000/svg'>
+            <path fill="rgba(230, 151, 145, 0.9)" d="M36.2,-62.7C47.3,-56.2,57.1,-47.4,66.3,-36.6C75.5,-25.8,84.1,-12.9,86.7,1.5C89.3,15.9,86,31.8,77.5,43.9C69,55.9,55.4,64.1,41.6,71.8C27.8,79.4,13.9,86.5,1.5,84C-11,81.4,-21.9,69.2,-34.4,60.7C-46.8,52.3,-60.7,47.7,-69.4,38.2C-78,28.7,-81.4,14.4,-78.6,1.6C-75.8,-11.2,-66.9,-22.3,-60.7,-36C-54.5,-49.8,-51.1,-66.1,-41.4,-73.4C-31.7,-80.8,-15.9,-79.1,-1.7,-76.2C12.5,-73.3,25,-69.1,36.2,-62.7Z" transform="translate(50 50)" />
+        </svg>
+        <svg *ngIf='toast.jam?.includes("Blueberry")' viewBox='-20 -20 155 150' xmlns='http://www.w3.org/2000/svg'>
+            <path fill="rgba(146, 145, 230, 0.8)" d="M54.1,-52.7C69.3,-39,80,-19.5,82,1.9C83.9,23.4,77,46.7,61.8,57.1C46.7,67.5,23.4,65,3.8,61.2C-15.7,57.3,-31.4,52.2,-44.4,41.8C-57.3,31.4,-67.6,15.7,-65,2.6C-62.4,-10.6,-47,-21.1,-34.1,-34.8C-21.1,-48.5,-10.6,-65.4,4.5,-69.8C19.5,-74.3,39,-66.4,54.1,-52.7Z" transform="translate(50 50)" />
+        </svg>
+        <svg *ngIf='toast.jam?.includes("Huckleberry")' viewBox='-30 -20 170 170' xmlns='http://www.w3.org/2000/svg'>
+            <path fill="rgba(207, 145, 230, 0.8)" d="M44.9,-59.1C56.2,-53.7,61.8,-37.8,68.3,-21.3C74.9,-4.9,82.4,12.2,79.9,27.9C77.5,43.7,65.1,58.1,50.1,69.9C35.1,81.6,17.6,90.7,0,90.8C-17.7,90.9,-35.3,81.9,-49.7,69.9C-64.1,58,-75.1,43,-77.4,27.2C-79.6,11.4,-73.1,-5.1,-65.2,-18.6C-57.2,-32,-47.8,-42.4,-36.7,-47.9C-25.6,-53.4,-12.8,-54,2,-56.8C16.8,-59.6,33.7,-64.5,44.9,-59.1Z" transform="translate(50 50)" />
+        </svg>
+        <svg *ngIf='toast.jam?.includes("Rhubarb")' viewBox='-50 -60 170 180' xmlns='http://www.w3.org/2000/svg'>
+            <path fill="rgba(168, 50, 84, 0.8)" d="M41.4,-59.1C50.2,-50.5,51.5,-33.8,57.7,-18C64,-2.1,75.1,12.9,73.1,25.3C71.2,37.6,56.2,47.1,41.8,57.7C27.4,68.2,13.7,79.8,-2,82.6C-17.8,85.4,-35.6,79.4,-49.1,68.6C-62.6,57.8,-71.8,42,-78,24.9C-84.1,7.8,-87.2,-10.8,-82.4,-27.2C-77.7,-43.6,-65,-57.8,-49.9,-64.3C-34.9,-70.8,-17.4,-69.7,-0.6,-68.9C16.3,-68.1,32.5,-67.6,41.4,-59.1Z" transform="translate(40 20)" />
+        </svg>
+    </div>
+    
+    <div *ngIf='toast.toppings?.includes("Avocado")' class="topping avocado">
+        <div class="skin"></div>
+        <div class="inner-shadow"></div>
+        <div class="inner"></div>
+    </div>  
+
+    <div *ngIf='toast.sliced != null && toast.sliced != sliceStyle.NONE' class='topping slice' 
+        [ngClass]='{      
+            diagonal: this.toast.sliced === sliceStyle.DIAGONAL,  
+            dark: getDarkMode()
+        }'>
+    </div>
+
+    <div *ngIf='toast.buttered' class='topping butter'></div>
+    
+    <div *ngIf='toast.toppings?.includes("Pepper")' class="topping pepper"></div>  
+    <div *ngIf='toast.toppings?.includes("Pepper")' class="topping pepper extra"></div>  
+    
+    <div *ngIf='toast.toppings?.includes("Salt")' class="topping salt"></div>  
+    <div *ngIf='toast.toppings?.includes("Salt")' class="topping salt extra"></div>  
+    
+    <div *ngIf='toast.toppings?.includes("Cinnamon")' class="topping cinnamon"></div>  
+    <div *ngIf='toast.toppings?.includes("Cinnamon")' class="topping cinnamon extra"></div>  
+    
+    <div *ngIf='toast.toppings?.includes("Sugar")' class="topping sugar"></div>  
+    <div *ngIf='toast.toppings?.includes("Sugar")' class="topping sugar extra"></div>  
+</div>

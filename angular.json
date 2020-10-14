@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "toast"
+    }
+  },
+  "defaultProject": "toast",
+  "cli": {
+    "analytics": "1e16bb36-11b5-4a92-a6f9-6c63c93b6c5b"
+  }
 }

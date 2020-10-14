@@ -1,0 +1,65 @@
+<div [class.dark-theme]="isDark"> <!-- 👈 we're wrapping whole content in a div, to handle dark/light theme -->
+    <mat-toolbar [color]="themeColor">
+      <span>Toast</span>
+      <span class="example-spacer"></span>
+        
+      <!-- 👇 below button will help us change the theme at run-time. -->
+      <button mat-icon-button (click)="toggleTheme()" matTooltip="Toggle dark theme">
+        <mat-icon>
+          brightness_6
+        </mat-icon>
+      </button>
+        
+      <!-- 👇 below menu will help us change the color at run-time. -->
+        
+      <button mat-button [matMenuTriggerFor]="menu" class="menu-button" matTooltip="Select a theme color">
+        {{ themeColor }}
+      </button>
+        
+      <ng-template #noRadio>
+        radio_button_unchecked
+      </ng-template>
+        
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="themeColor = 'primary'">
+          <mat-icon [color]="themeColor === 'primary' ? 'primary' : 'no-color'">
+            <ng-container *ngIf="themeColor === 'primary'; else noRadio">radio_button_checked</ng-container>
+          </mat-icon>
+          Primary
+        </button>
+        <button mat-menu-item (click)="themeColor = 'warn'">
+          <mat-icon [color]="themeColor === 'warn' ? 'warn' : 'no-color'">
+            <ng-container *ngIf="themeColor === 'warn'; else noRadio">radio_button_checked</ng-container>
+          </mat-icon>
+          Warn
+        </button>
+        <button mat-menu-item (click)="themeColor = 'accent'">
+          <mat-icon [color]="themeColor === 'accent' ? 'accent' : 'no-color'">
+            <ng-container *ngIf="themeColor === 'accent'; else noRadio">radio_button_checked</ng-container>
+          </mat-icon>
+          Accent
+        </button>
+      </mat-menu>
+        
+    </mat-toolbar>
+    <mat-sidenav-container class="example-container">
+        
+      <!-- <mat-sidenav #sidenav mode="side" opened> -->
+          <!-- <mat-nav-list> -->
+              <!-- <h1>Color Scheme</h1> -->
+              <!-- <a mat-list-item href="#">Link 1</a>
+              <a mat-list-item href="#">Link 2</a>
+              <a mat-list-item href="#">Link 3</a> -->
+        <!-- </mat-nav-list> -->
+      <!-- </mat-sidenav> -->
+        
+      <mat-sidenav-content>
+          
+        <!-- 👇 our main content will be loaded here. -->
+          
+        <ng-content></ng-content>
+          
+      </mat-sidenav-content>
+        
+    </mat-sidenav-container>
+  </div>

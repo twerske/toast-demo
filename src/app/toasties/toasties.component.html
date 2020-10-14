@@ -1,0 +1,16 @@
+<div class="toast-container">
+    <app-toast *ngFor="let toast of toasts" [toast]="toast"></app-toast>
+    <!-- <mat-progress-bar mode="indeterminate" *ngIf="toasts.length==0">HELLO</mat-progress-bar> -->
+    <mat-progress-spinner *ngIf="toasts.length==0" color="accent" mode="indeterminate"></mat-progress-spinner>
+</div>
+
+<div class="controls-container" 
+    [ngClass]='{
+        dark: getDarkMode()
+    }'
+>
+    <app-controls
+        (makeToast)="makeToast($event)"
+        (resetToast)="resetToast()"
+    ></app-controls>
+</div>

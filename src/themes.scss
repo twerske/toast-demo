@@ -1,0 +1,33 @@
+// 👇 Importing `Work Sans` font for headings, you can change this if you want
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+// 👇 1. Default theme
+$toast-primary: mat-palette($mat-indigo);
+$oast-accent: mat-palette($mat-pink, A200, A100, A400);
+$toast-warn: mat-palette($mat-red);
+
+// 👇 2. Define an alternate dark theme.
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent: mat-palette($mat-amber, A200, A100, A400);
+$dark-warn: mat-palette($mat-deep-orange);
+
+$dark-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $dark-primary,
+      accent: $dark-accent,
+      warn: $dark-warn,
+    ),
+  )
+);
+
+// 👇 3. Define a custom heading typography config
+$heading-font-family: "'Lato', sans-serif";
+$typography: mat-typography-config(
+  $display-4: mat-typography-level(112px, $font-family: $heading-font-family),
+  $display-3: mat-typography-level(56px, $font-family: $heading-font-family),
+  $display-2: mat-typography-level(45px, $font-family: $heading-font-family),
+  $display-1: mat-typography-level(34px, $font-family: $heading-font-family),
+  $headline: mat-typography-level(24px, $font-family: $heading-font-family),
+  $title: mat-typography-level(20px, $font-family: $heading-font-family),
+);

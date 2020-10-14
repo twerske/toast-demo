@@ -1,0 +1,37 @@
+<form class="jam-form">
+    <mat-form-field class="jam-full-width">
+      <mat-chip-list #chipList aria-label="Jam selection">
+        <mat-chip
+          *ngFor="let flavor of flavors"
+          [selectable]="true"
+          [removable]="true"
+          (removed)="remove(flavor)">
+          {{flavor}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Jam Flavor"
+          aria-label="String"
+          #jamInput
+          matInput
+          [formControl]="jamControl"
+          [matAutocomplete]="auto"
+          (ngModelChange)="this.setFlavor.emit(this.flavors)"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+      <!-- <input type="text"
+             placeholder="Jam flavor"
+             matInput
+             [(ngModel)]='flavor'
+             (ngModelChange)="this.setFlavor.emit(this.flavor)"
+             [formControl]="jamControl"
+             [matAutocomplete]="auto"> -->
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+ </form>

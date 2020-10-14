@@ -1,0 +1,274 @@
+@import "src/styles.scss";
+
+// Palette foreground/background:
+$light-foreground-palette: map-get($toast-theme, foreground);
+$light-background-palette: map-get($toast-theme, background);
+
+// Dark palette foreground/background:
+$dark-foreground-palette: map-get($dark-theme, foreground);
+$dark-background-palette: map-get($dark-theme, background);
+
+// .light-colors{
+//     background-color : mat-color($toast-primary, default);
+//     color: mat-color($light-foreground-palette, text);
+// }
+// .dark-colors{
+//     background-color : mat-color($dark-primary, default);
+//     color: mat-color($dark-foreground-palette, text);
+// }
+
+@mixin avocado-shape($width, $height, $color) {
+    width: $width;
+    height: $height;
+    background-color: $color;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    filter: url('#gooey');
+    
+    &:before {
+         position: absolute;
+         width: 70%;
+         height: 83%;
+         content: "";
+         background-color: $color;
+         top: -25%;
+         left:50%;
+         transform: translateX(-50%);
+         border-radius: 50%;
+    }
+}
+
+.breadBody {
+    width: 100px;
+    height: 100px;
+    flex: 0 1 150px; /*  No stretching: */
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .top {
+        width: 100%;
+        height: 50%;
+        border-radius: 50% 50% 30% 30%;
+        border: 6px solid;
+        border-bottom: none;
+    }
+
+    .bottom {
+        width: 80%;
+        height: 70%;  
+        margin-top: -5px;
+        border-radius: 5% 5% 20% 20%;
+        border: 6px solid;
+        border-top: none;
+    }
+
+    .top, .bottom {
+        &.sourdough {
+            background: #ffd480; 
+            border-color: #cc8800;
+
+            &.toasted {
+                background: #ecb84f;
+                border-color: #bd7e00;
+            }
+        
+            &.burnt {
+                background: #e6ad3c;
+                border-color: #b67a01;
+            }
+        }
+
+        &.wheat {
+            background: #b17b31; 
+            border-color: #885b00;
+
+            &.toasted {
+                background: #b17829; 
+                border-color: #744d00;
+            }
+        
+            &.burnt {
+                background: #976217; 
+                border-color: #5c3d00;
+            }
+        }
+
+        &.rye {
+            background: #58390e; 
+            border-color: #422b0b;
+
+            &.toasted {
+                background: #53350a; 
+                border-color: #352106;
+            }
+        
+            &.burnt {
+                background: #422904; 
+                border-color: #241603;
+            }
+        }
+    }
+
+    .topping {
+        position: absolute;
+
+        width: 80%;
+        height: 74%;
+
+        &.sourdough {
+            box-shadow: 0 0 4px 4px #ffd480 inset;
+
+            &.toasted {
+                box-shadow: 0 0 4px 4px #eeb440 inset;
+                background: radial-gradient(ellipse at top, #ce972a, #f0b94b),
+                            radial-gradient(ellipse at bottom, #e6b149, #bb913d);
+            }
+        
+            &.burnt {
+                box-shadow: 0 0 4px 4px #e6ad3c inset;
+                background: radial-gradient(ellipse at top, #c08715, #dba436),
+                            radial-gradient(ellipse at bottom, #e09d17, #c09235);
+            }
+        }
+
+        &.wheat {
+            box-shadow: 0 0 4px 4px #b17b31 inset;
+
+            &.toasted {
+                box-shadow: 0 0 4px 4px #b17829 inset;
+                background: radial-gradient(ellipse at top, #966726, #af731e),
+                            radial-gradient(ellipse at bottom, #885c1e, #b17521);
+            }
+        
+            &.burnt {
+                box-shadow: 0 0 4px 4px #976217 inset;
+                background: radial-gradient(ellipse at top, #7e551c, #af731e),
+                            radial-gradient(ellipse at bottom, #69430e, #754b0f);
+            }
+        }
+
+        &.rye {
+            box-shadow: 0 0 4px 4px #58390e inset;
+
+            &.toasted {
+                box-shadow: 0 0 4px 4px #53350a inset;
+                background: radial-gradient(ellipse at top, #613f08, #5a3805),
+                            radial-gradient(ellipse at bottom, #4e2e02, #7c4f0a);
+            }
+        
+            &.burnt {
+                box-shadow: 0 0 4px 4px #422904 inset;
+                background: radial-gradient(ellipse at top, #31230c, #613c05),
+                            radial-gradient(ellipse at bottom, #4e3109, #724502);
+            }
+        }
+
+        svg {
+            position: absolute;
+        }
+
+        &.slice {
+            background: mat-color($light-background-palette, background);
+            width: 4%;
+            height: 140%;
+
+            &.diagonal {
+                transform: rotate(40deg);
+            }
+
+            &.dark {
+                background: mat-color($dark-background-palette, background); 
+            }
+        }
+
+        &.butter {
+            width: 20%;
+            height: 20%;
+            transform: rotate(45deg);
+            margin-left: 25px;
+            margin-bottom: 30px;
+            background: #fafaa1ee;
+        }
+       
+       &.avocado {
+            height: 90%;
+            margin-top: 20%;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-20deg);
+            
+            .skin {
+                 @include avocado-shape(calc(80% - 1px), calc(80% - 1px), #4e6526);
+            }
+            
+            .inner-shadow {
+                 @include avocado-shape(calc(65% - 1px), calc(75% - 1px), #96c93a);
+            }
+            
+            .inner {
+                 @include avocado-shape(calc(50% - 1px), calc(60% - 1px), #afd64d);
+            }
+        }
+
+       &.pepper {
+            width: 50%;
+            height: 40%;
+            transform: rotate(20deg);
+            background-image: radial-gradient(black 10%, transparent 0), radial-gradient(black 10%, transparent 0);
+            background-size: 10px 10px;
+            background-position: 0 0, 10px 10px;
+
+            &.extra {
+                transform: rotate(-10deg);
+            }
+        }
+
+       &.salt {
+            width: 40%;
+            height: 50%;
+            transform: rotate(-20deg);
+            background-image: radial-gradient(white 10%, transparent 0), radial-gradient(white 10%, transparent 0);
+            background-size: 10px 10px;
+            background-position: 0 0, 10px 10px;
+
+            &.extra {
+                transform: rotate(10deg);
+            }
+        }
+
+       &.cinnamon {
+            width: 80%;
+            height: 80%;
+            transform: rotate(20deg);
+            background-image: radial-gradient(#a65844 10%, transparent 0), radial-gradient(#a65844 10%, transparent 0);
+            background-size: 10px 10px;
+            background-position: 0 0, 10px 10px;
+
+            &.extra {
+                transform: rotate(-10deg);
+            }
+        }
+
+        &.sugar {
+            width: 80%;
+            transform: rotate(-20deg);
+            background-image: radial-gradient(rgba(251, 235, 255, 0.9) 10%, transparent 0), radial-gradient(rgba(251, 235, 255, 0.9) 10%, transparent 0);
+            background-size: 10px 10px;
+            background-position: 0 0, 10px 10px;
+
+            &.extra {
+                transform: rotate(10deg);
+            }
+        }
+    }
+}
