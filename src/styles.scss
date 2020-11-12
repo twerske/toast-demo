@@ -16,7 +16,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $toast-primary: mat-palette($mat-indigo);
-$toast-accent: mat-palette($mat-pink, A200, A100, A400);
+$toast-accent: mat-palette($mat-blue, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $toast-warn: mat-palette($mat-red);
@@ -39,12 +39,12 @@ $toast-theme: mat-light-theme((
 // @include angular-material-theme($toast-theme);
 @include angular-material-theme($toast-theme);
 
-@media (prefers-color-scheme: dark) {
-  @include angular-material-color($dark-theme);
-}
+// @media (prefers-color-scheme: dark) {
+//   @include angular-material-color($dark-theme);
+// }
 
 .dark-theme {
-  @include angular-material-color($dark-theme);
+  @include angular-material-theme($dark-theme);
 }
 
 @include angular-material-typography($typography);
