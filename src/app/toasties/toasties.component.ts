@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Toast, TOASTS } from 'src/app/toast';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import {OverlayContainer} from '@angular/cdk/overlay';
+import {Component, OnInit} from '@angular/core';
+import {Toast, TOASTS} from '../Toast';
 
 @Component({
   selector: 'app-toasties',
@@ -9,7 +9,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class ToastiesComponent implements OnInit {
 
-  constructor(private overlayContainer: OverlayContainer) {}
+  constructor(private overlayContainer: OverlayContainer) {
+  }
 
   // Array of toasts TODO: refactor to create a service
   toasts: Toast[] = TOASTS;

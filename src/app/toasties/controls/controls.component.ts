@@ -1,8 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Toast, SliceStyle } from 'src/app/toast';
-import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
-import { FormControl } from '@angular/forms';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {SliceStyle, Toast} from '../../Toast';
+import {BottomSheetComponent} from './bottom-sheet/bottom-sheet.component';
 
 @Component({
   selector: 'app-controls',
@@ -24,7 +24,8 @@ export class ControlsComponent implements OnInit {
   toppings = new FormControl();
   toppingList: string[] = ['Avocado', 'Pepper', 'Salt', 'Cinnamon', 'Sugar'];
 
-  constructor(private bottomSheet: MatBottomSheet) {}
+  constructor(private bottomSheet: MatBottomSheet) {
+  }
 
   openBottomSheet(): void {
     this.bottomSheet.open(BottomSheetComponent);
@@ -37,12 +38,12 @@ export class ControlsComponent implements OnInit {
   // Function to add new toast
   generateToast(): void {
     this.makeToast.emit({
-        bread: this.bread,
-        toasted: this.toasted,
-        buttered: this.buttered,
-        jam: this.jam.value,
-        toppings: this.toppings.value,
-        sliced: this.getSliceStyle()
+      bread: this.bread,
+      toasted: this.toasted,
+      buttered: this.buttered,
+      jam: this.jam.value,
+      toppings: this.toppings.value,
+      sliced: this.getSliceStyle()
     });
   }
 
