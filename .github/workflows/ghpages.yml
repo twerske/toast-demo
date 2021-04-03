@@ -28,5 +28,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: ng deploy
         env:
-          GH_TOKEN: ${{secrets.GH_TOKEN}}
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: npx ng deploy --base-href=/toast-demo/ --name=nartc --email=nartc7789@gmail.com --no-silent
