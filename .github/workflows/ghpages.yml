@@ -29,4 +29,4 @@ jobs:
       - name: ng deploy
         env:
           GH_TOKEN: ${{secrets.GH_TOKEN}}
-        run: npx ng deploy --base-href=/toast-demo/ --no-silent
+        run: npx ng deploy --base-href=/toast-demo/ --name=nartc --email=nartc7789@gmail.com --no-silent
