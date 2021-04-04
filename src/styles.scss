@@ -10,7 +10,7 @@
 @include mat-core();
 
 // Import our custom theme
-@import "./themes.scss";   
+@import "./themes.scss";
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -44,15 +44,15 @@ $toast-theme: mat-light-theme((
 // }
 
 .dark-theme {
-  @include angular-material-theme($dark-theme);
+  @include angular-material-color($dark-theme);
 }
 
 @include angular-material-typography($typography);
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
-  height: 100%; 
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
   background-color: pink;

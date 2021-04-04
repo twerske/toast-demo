@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Toast, SliceStyle } from 'src/app/toast';
-import { OverlayContainer } from '@angular/cdk/overlay';
+import {OverlayContainer} from '@angular/cdk/overlay';
+import {Component, Input, OnInit} from '@angular/core';
+import {SliceStyle, Toast} from '../../Toast';
 
 @Component({
   selector: 'app-toast',
@@ -10,7 +10,8 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class ToastComponent implements OnInit {
   @Input() toast: Toast;
 
-  constructor(private overlayContainer: OverlayContainer) {}
+  constructor(private overlayContainer: OverlayContainer) {
+  }
 
   ngOnInit(): void {
   }

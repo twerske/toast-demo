@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
-import { Toast } from 'src/app/toast';
+import {Component, OnInit} from '@angular/core';
+import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-bottom-sheet',
@@ -8,7 +7,8 @@ import { Toast } from 'src/app/toast';
   styleUrls: ['./bottom-sheet.component.scss']
 })
 export class BottomSheetComponent implements OnInit {
-  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>) {}
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetComponent>) {
+  }
 
   ngOnInit(): void {
   }
