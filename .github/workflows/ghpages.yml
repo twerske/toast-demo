@@ -4,9 +4,9 @@ name: Deploy GH Pages
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-#  push:
-#    branches: [ main ]
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,4 +29,4 @@ jobs:
       - name: ng deploy
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: npx ng deploy --base-href=/toast-demo/ --name=<YOUR_GITHUB_USERNAME> --email=<YOUR_GITHUB_EMAIL>
+        run: npx ng deploy --base-href=/toast-demo/ --name=twerske --email=pokepsi@gmail.com
